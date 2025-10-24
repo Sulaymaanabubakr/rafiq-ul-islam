@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafiq ul-Islam - Islamic AI Companion</title>
+    <meta name="description" content="Your AI companion for Islamic knowledge and guidance">
+    <meta name="theme-color" content="#1a1a1a"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                    <span>New Chat</span>
+                </button>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="chat-history" id="chatHistory">
+                <div class="history-section">
+                    <h3>Today</h3>
+                    <div class="chat-item active">
+                        <i class="fas fa-message"></i>
+                        <span>Welcome Conversation</span>
+                        <i class="fas fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                
+                <div class="history-section">
+                    <h3>Previous 7 Days</h3>
+                    <div class="chat-item">
+                        <i class="fas fa-message"></i>
+                        <span>Questions about Prayer</span>
+                    </div>
+                    <div class="chat-item">
+                        <i class="fas fa-message"></i>
+                        <span>Quran Tafsir Discussion</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-section">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">User</span>
+                        <span class="user-status">Online</span>
+                    </div>
+                </div>
+                <button class="settings-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <div class="chat-header">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="chat-title">
+                    <h2>Rafiq ul-Islam</h2>
+                    <span class="chat-subtitle">Your Islamic Companion</span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" title="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="header-btn" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-container">
+                    <div class="welcome-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <h1>Assalamu Alaikum!</h1>
+                    <p>I'm Rafiq ul-Islam, your companion in Islamic learning. How can I assist you today?</p>
+                    
+                    <div class="quick-questions">
+                        <div class="question-chip" data-question="What are the five pillars of Islam?">
+                            <i class="fas fa-star"></i>
+                            <span>Five Pillars of Islam</span>
+                        </div>
+                        <div class="question-chip" data-question="Explain the importance of Salah">
+                            <i class="fas fa-pray"></i>
+                            <span>Importance of Salah</span>
+                        </div>
+                        <div class="question-chip" data-question="Tell me about Prophet Muhammad's (PBUH) life">
+                            <i class="fas fa-book"></i>
+                            <span>Prophet's Life</span>
+                        </div>
+                        <div class="question-chip" data-question="What does the Quran say about patience?">
+                            <i class="fas fa-heart"></i>
+                            <span>Patience in Quran</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Message Rafiq ul-Islam..." 
+                        rows="1"
+                    ></textarea>
+                    <button id="sendButton" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="disclaimer">
+                        Rafiq ul-Islam can make mistakes. Always verify important matters with scholars.
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel">
+            <div class="settings-header">
+                <h3>Settings</h3>
+                <button class="close-settings" id="closeSettings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-group">
+                    <h4>Chat Settings</h4>
+                    <div class="setting-item">
+                        <label>Chat Memory</label>
+                        <select id="memorySetting">
+                            <option value="full">Full Context</option>
+                            <option value="limited">Limited Memory</option>
+                            <option value="none">No Memory</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Response Length</label>
+                        <select id="responseLength">
+                            <option value="short">Short</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="detailed">Detailed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h4>Appearance</h4>
+                    <div class="setting-item">
+                        <label>Theme</label>
+                        <select id="themeSetting">
+                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                            <option value="auto">Auto</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Font Size</label>
+                        <select id="fontSize">
+                            <option value="small">Small</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h4>Islamic Settings</h4>
+                    <div class="setting-item">
+                        <label>Madhab Preference</label>
+                        <select id="madhabSetting">
+                            <option value="none">No Preference</option>
+                            <option value="hanafi">Hanafi</option>
+                            <option value="shafi">Shafi'i</option>
+                            <option value="maliki">Maliki</option>
+                            <option value="hanbali">Hanbali</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Language Style</label>
+                        <select id="languageStyle">
+                            <option value="modern">Modern English</option>
+                            <option value="traditional">Traditional</option>
+                            <option value="balanced" selected>Balanced</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
