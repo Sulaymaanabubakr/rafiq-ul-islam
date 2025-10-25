@@ -13,6 +13,14 @@
 </head>
 <body>
     <div class="app-container">
+        <!-- Disclaimer Banner at the Top -->
+        <div class="disclaimer-banner">
+            <div class="disclaimer-content">
+                <i class="fas fa-info-circle"></i>
+                <span>Rafiq provides educational Islamic content. Consult scholars for complex fiqh matters.</span>
+            </div>
+        </div>
+
         <!-- Sidebar - Hidden on Mobile -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
@@ -129,89 +137,18 @@
                 </div>
             </div>
 
-            <!-- Chat Messages -->
+           <!-- Chat Messages -->
             <div class="chat-messages" id="chatMessages">
                 <div class="welcome-container">
-                    <div class="welcome-content">
-                        <div class="welcome-icon">
-                            <i class="fas fa-hands-praying"></i>
-                        </div>
-                        <h1>Assalamu Alaikum!</h1>
-                        <p class="welcome-subtitle">I'm Rafiq ul-Islam, your AI companion for Islamic knowledge. I'm here to help you learn and understand Islam better.</p>
-                        
-                        <div class="capabilities-grid">
-                            <div class="capability-card">
-                                <i class="fas fa-quran"></i>
-                                <h4>Quran & Tafsir</h4>
-                                <p>Understand Quranic verses and their meanings</p>
-                            </div>
-                            <div class="capability-card">
-                                <i class="fas fa-book"></i>
-                                <h4>Hadith Studies</h4>
-                                <p>Learn from authentic Prophetic traditions</p>
-                            </div>
-                            <div class="capability-card">
-                                <i class="fas fa-pray"></i>
-                                <h4>Daily Worship</h4>
-                                <p>Guidance on Salah, Duas, and spirituality</p>
-                            </div>
-                            <div class="capability-card">
-                                <i class="fas fa-heart"></i>
-                                <h4>Islamic Ethics</h4>
-                                <p>Develop character and moral excellence</p>
-                            </div>
-                        </div>
-
-                        <div class="quick-actions">
-                            <h3>Quick Start</h3>
-                            <div class="action-buttons">
-                                <button class="action-btn primary" data-question="Assalamu alaikum">
-                                    <i class="fas fa-handshake"></i>
-                                    <span>Start with Salam</span>
-                                </button>
-                                <button class="action-btn secondary" id="startEmpty">
-                                    <i class="fas fa-keyboard"></i>
-                                    <span>Type My Question</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="suggestions-section">
-                            <h3>Popular Questions</h3>
-                            <div class="suggestions-grid">
-                                <div class="suggestion-chip" data-question="What are the five pillars of Islam?">
-                                    <i class="fas fa-star-and-crescent"></i>
-                                    <span>Five Pillars of Islam</span>
-                                </div>
-                                <div class="suggestion-chip" data-question="Explain the importance of Salah in detail">
-                                    <i class="fas fa-pray"></i>
-                                    <span>Importance of Prayer</span>
-                                </div>
-                                <div class="suggestion-chip" data-question="Tell me about Prophet Muhammad's life and character">
-                                    <i class="fas fa-book-quran"></i>
-                                    <span>Prophet's Seerah</span>
-                                </div>
-                                <div class="suggestion-chip" data-question="What does the Quran say about patience and perseverance?">
-                                    <i class="fas fa-heart"></i>
-                                    <span>Patience in Quran</span>
-                                </div>
-                                <div class="suggestion-chip" data-question="How to perform wudu correctly?">
-                                    <i class="fas fa-water"></i>
-                                    <span>Wudu Steps</span>
-                                </div>
-                                <div class="suggestion-chip" data-question="What are the benefits of reading Quran daily?">
-                                    <i class="fas fa-book-open"></i>
-                                    <span>Quran Benefits</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="welcome-footer">
-                            <div class="welcome-note">
-                                <i class="fas fa-lightbulb"></i>
-                                <span>You can also simply type your question in the chat below to get started</span>
-                            </div>
-                        </div>
+                    <div class="welcome-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h1>Assalamu Alaikum!</h1>
+                    <p>I'm Rafiq ul-Islam, your companion for Islamic knowledge. Ask me anything about Islam.</p>
+                    
+                    <div class="welcome-note">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Type your question below to get started</span>
                     </div>
                 </div>
             </div>
@@ -219,14 +156,6 @@
             <!-- Chat Input -->
             <div class="chat-input-container">
                 <div class="input-wrapper">
-                    <div class="input-actions">
-                        <button class="input-action-btn" id="attachBtn" title="Attach">
-                            <i class="fas fa-paperclip"></i>
-                        </button>
-                        <button class="input-action-btn" id="voiceBtn" title="Voice Input">
-                            <i class="fas fa-microphone"></i>
-                        </button>
-                    </div>
                     <textarea 
                         id="messageInput" 
                         placeholder="Ask Rafiq about Islam, Quran, Hadith, or any Islamic topic..." 
@@ -236,28 +165,8 @@
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
-                <div class="input-footer">
-                    <div class="footer-actions">
-                        <button class="footer-btn" id="themeToggle">
-                            <i class="fas fa-palette"></i>
-                            <span>Theme</span>
-                        </button>
-                        <button class="footer-btn" id="clearChat">
-                            <i class="fas fa-broom"></i>
-                            <span>Clear</span>
-                        </button>
-                        <button class="footer-btn" id="exportChat">
-                            <i class="fas fa-download"></i>
-                            <span>Export</span>
-                        </button>
-                    </div>
-                    <span class="disclaimer">
-                        Rafiq provides educational Islamic content. Consult scholars for complex fiqh matters.
-                    </span>
-                </div>
             </div>
         </div>
-    </div>
 
     <!-- Mobile Overlay -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
