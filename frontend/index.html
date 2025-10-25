@@ -13,15 +13,7 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Disclaimer Banner at the Top -->
-        <div class="disclaimer-banner">
-            <div class="disclaimer-content">
-                <i class="fas fa-info-circle"></i>
-                <span>Rafiq provides educational Islamic content. Consult scholars for complex fiqh matters.</span>
-            </div>
-        </div>
-
-        <!-- Sidebar - Hidden on Mobile -->
+        <!-- Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <button class="new-chat-btn" id="newChatBtn">
@@ -137,18 +129,63 @@
                 </div>
             </div>
 
-           <!-- Chat Messages -->
+            <!-- Chat Messages -->
             <div class="chat-messages" id="chatMessages">
                 <div class="welcome-container">
-                    <div class="welcome-icon">
-                        <i class="fas fa-hands-praying"></i>
-                    </div>
-                    <h1>Assalamu Alaikum!</h1>
-                    <p>I'm Rafiq ul-Islam, your companion for Islamic knowledge. Ask me anything about Islam.</p>
-                    
-                    <div class="welcome-note">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Type your question below to get started</span>
+                    <div class="welcome-content">
+                        <div class="welcome-icon">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <h1>Assalamu Alaikum!</h1>
+                        <p class="welcome-subtitle">I'm Rafiq ul-Islam, your companion for Islamic knowledge. Ask me anything about Islam, Quran, Hadith, or Islamic history.</p>
+                        
+                        <div class="capabilities-grid">
+                            <div class="capability-card">
+                                <i class="fas fa-quran"></i>
+                                <h4>Quranic Knowledge</h4>
+                                <p>Understand verses, tafsir, and context</p>
+                            </div>
+                            <div class="capability-card">
+                                <i class="fas fa-book"></i>
+                                <h4>Hadith Explanation</h4>
+                                <p>Learn about Prophet's teachings</p>
+                            </div>
+                            <div class="capability-card">
+                                <i class="fas fa-pray"></i>
+                                <h4>Fiqh & Worship</h4>
+                                <p>Guidance on prayers and rituals</p>
+                            </div>
+                            <div class="capability-card">
+                                <i class="fas fa-history"></i>
+                                <h4>Islamic History</h4>
+                                <p>Stories of prophets and scholars</p>
+                            </div>
+                        </div>
+
+                        <div class="suggestions-section">
+                            <h3>Quick Questions</h3>
+                            <div class="suggestions-grid">
+                                <div class="suggestion-chip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>What are the five pillars of Islam?</span>
+                                </div>
+                                <div class="suggestion-chip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Explain the importance of Salah</span>
+                                </div>
+                                <div class="suggestion-chip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Tell me about Prophet Muhammad's life</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="welcome-footer">
+                            <div class="welcome-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Type your question below to get started with Rafiq</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,6 +193,14 @@
             <!-- Chat Input -->
             <div class="chat-input-container">
                 <div class="input-wrapper">
+                    <div class="input-actions">
+                        <button class="input-action-btn" title="Attach File">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="input-action-btn" title="Voice Message">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
                     <textarea 
                         id="messageInput" 
                         placeholder="Ask Rafiq about Islam, Quran, Hadith, or any Islamic topic..." 
@@ -165,116 +210,132 @@
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
-            </div>
-        </div>
-
-    <!-- Mobile Overlay -->
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-
-    <!-- Settings Panel -->
-    <div class="settings-panel" id="settingsPanel">
-        <div class="panel-header">
-            <h3>Settings</h3>
-            <button class="close-panel" id="closeSettings">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="panel-content">
-            <div class="settings-section">
-                <h4>Appearance</h4>
-                <div class="setting-item">
-                    <label>Theme</label>
-                    <select id="themeSetting">
-                        <option value="auto">Auto (System)</option>
-                        <option value="light">Light Mode</option>
-                        <option value="dark">Dark Mode</option>
-                    </select>
-                </div>
-                <div class="setting-item">
-                    <label>Font Size</label>
-                    <select id="fontSize">
-                        <option value="small">Small</option>
-                        <option value="medium" selected>Medium</option>
-                        <option value="large">Large</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="settings-section">
-                <h4>Chat Preferences</h4>
-                <div class="setting-item">
-                    <label>Response Style</label>
-                    <select id="responseStyle">
-                        <option value="detailed">Detailed</option>
-                        <option value="balanced" selected>Balanced</option>
-                        <option value="concise">Concise</option>
-                    </select>
-                </div>
-                <div class="setting-item">
-                    <label>Madhab Preference</label>
-                    <select id="madhabSetting">
-                        <option value="none">No Preference</option>
-                        <option value="hanafi">Hanafi</option>
-                        <option value="maliki">Maliki</option>
-                        <option value="shafi">Shafi'i</option>
-                        <option value="hanbali">Hanbali</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="settings-section">
-                <h4>Data & Privacy</h4>
-                <div class="setting-item">
-                    <label>Chat History</label>
-                    <div class="setting-actions">
-                        <button class="action-btn danger" id="clearHistory">
-                            <i class="fas fa-trash"></i>
-                            Clear All History
+                <div class="input-footer">
+                    <div class="footer-actions">
+                        <button class="footer-btn">
+                            <i class="fas fa-shield-alt"></i>
+                            Privacy
+                        </button>
+                        <button class="footer-btn">
+                            <i class="fas fa-book"></i>
+                            Sources
                         </button>
                     </div>
-                </div>
-                <div class="setting-item">
-                    <label>Export Data</label>
-                    <div class="setting-actions">
-                        <button class="action-btn secondary" id="exportData">
-                            <i class="fas fa-download"></i>
-                            Export Chats
-                        </button>
-                    </div>
+                    <span class="disclaimer">
+                        Rafiq provides educational Islamic content. Consult scholars for complex fiqh matters.
+                    </span>
                 </div>
             </div>
+        </div>
 
-            <div class="settings-section">
-                <h4>About Rafiq</h4>
-                <div class="about-info">
-                    <p>Rafiq ul-Islam is an AI companion designed to provide authentic Islamic knowledge based on Quran and authentic Hadith.</p>
-                    <div class="version-info">
-                        <span>Version 1.0.0</span>
-                        <span>•</span>
-                        <span>Powered by DeepSeek AI</span>
+        <!-- Mobile Overlay -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel">
+            <div class="panel-header">
+                <h3>Settings</h3>
+                <button class="close-panel" id="closeSettings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="panel-content">
+                <div class="settings-section">
+                    <h4>Appearance</h4>
+                    <div class="setting-item">
+                        <label>Theme</label>
+                        <select id="themeSetting">
+                            <option value="auto">Auto (System)</option>
+                            <option value="light">Light Mode</option>
+                            <option value="dark">Dark Mode</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Font Size</label>
+                        <select id="fontSize">
+                            <option value="small">Small</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Chat Preferences</h4>
+                    <div class="setting-item">
+                        <label>Response Style</label>
+                        <select id="responseStyle">
+                            <option value="detailed">Detailed</option>
+                            <option value="balanced" selected>Balanced</option>
+                            <option value="concise">Concise</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Madhab Preference</label>
+                        <select id="madhabSetting">
+                            <option value="none">No Preference</option>
+                            <option value="hanafi">Hanafi</option>
+                            <option value="maliki">Maliki</option>
+                            <option value="shafi">Shafi'i</option>
+                            <option value="hanbali">Hanbali</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>Data & Privacy</h4>
+                    <div class="setting-item">
+                        <label>Chat History</label>
+                        <div class="setting-actions">
+                            <button class="action-btn danger" id="clearHistory">
+                                <i class="fas fa-trash"></i>
+                                Clear All History
+                            </button>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label>Export Data</label>
+                        <div class="setting-actions">
+                            <button class="action-btn secondary" id="exportData">
+                                <i class="fas fa-download"></i>
+                                Export Chats
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>About Rafiq</h4>
+                    <div class="about-info">
+                        <p>Rafiq ul-Islam is an AI companion designed to provide authentic Islamic knowledge based on Quran and authentic Hadith.</p>
+                        <div class="version-info">
+                            <span>Version 1.0.0</span>
+                            <span>•</span>
+                            <span>Powered by DeepSeek AI</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Search Panel -->
-    <div class="search-panel" id="searchPanel">
-        <div class="panel-header">
-            <h3>Search Chats</h3>
-            <button class="close-panel" id="closeSearch">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="panel-content">
-            <div class="search-input-wrapper">
-                <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Search your conversation history...">
+        <!-- Search Panel -->
+        <div class="search-panel" id="searchPanel">
+            <div class="panel-header">
+                <h3>Search Chats</h3>
+                <button class="close-panel" id="closeSearch">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="search-results" id="searchResults">
-                <div class="empty-state">
+            <div class="panel-content">
+                <div class="search-input-wrapper">
                     <i class="fas fa-search"></i>
-                    <p>Search your chat history</p>
+                    <input type="text" id="searchInput" placeholder="Search your conversation history...">
+                </div>
+                <div class="search-results" id="searchResults">
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <p>Search your chat history</p>
+                    </div>
                 </div>
             </div>
         </div>
