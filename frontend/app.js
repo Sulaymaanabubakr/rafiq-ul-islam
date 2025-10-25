@@ -72,6 +72,7 @@ class RafiqChat {
         this.renderChatHistory();
         this.updateStats();
         this.testBackendConnection();
+        this.handleMobileKeyboard(); // Add this line
     }
 
     setupEventListeners() {
@@ -159,6 +160,29 @@ class RafiqChat {
             navigator.serviceWorker.register('/sw.js')
                 .then(() => console.log('Service Worker Registered'))
                 .catch(err => console.log('Service Worker Registration Failed'));
+        }
+    }
+
+    handleMobileKeyboard() {
+        if (window.innerWidth <= 768) {
+            // Focus management for mobile
+            this.messageInput?.addEventListener('focus', () => {
+                setTimeout(() => {
+                    this.scrollToBottom();
+                }, 300);
+            });
+            
+            // Handle viewport changes (keyboard showing/hiding)
+            let viewportHeight = window.innerHeight;
+            window.addEventListener('resize', () => {
+                if (window.innerHeight < viewportHeight) {
+                    // Keyboard is showing
+                    setTimeout(() => {
+                        this.scrollToBottom();
+                    }, 100);
+                }
+                viewportHeight = window.innerHeight;
+            });
         }
     }
 
@@ -637,6 +661,9 @@ class RafiqChat {
             this.messageInput.style.height = 'auto';
         }
         
+        // Scroll to bottom before showing typing indicator
+        this.scrollToBottom();
+        
         // Show typing indicator
         this.showTypingIndicator();
         if (this.sendButton) {
@@ -676,6 +703,8 @@ class RafiqChat {
             if (this.messageInput) {
                 this.messageInput.focus();
             }
+            // Ensure we're scrolled to bottom after everything
+            setTimeout(() => this.scrollToBottom(), 100);
         }
     }
 
@@ -768,7 +797,9 @@ class RafiqChat {
 
     scrollToBottom() {
         if (this.chatMessages) {
-            this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            requestAnimationFrame(() => {
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            });
         }
     }
 
