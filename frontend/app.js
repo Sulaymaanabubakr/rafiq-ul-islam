@@ -1,6 +1,6 @@
 class RafiqChat {
     constructor() {
-        this.backendUrl = 'rafiq-ul-islam-production.up.railway.app';
+        this.backendUrl = 'https://rafiq-ul-islam-production.up.railway.app';
         this.currentChatId = this.generateChatId();
         this.chatHistory = this.loadChatHistory();
         this.settings = this.loadSettings();
